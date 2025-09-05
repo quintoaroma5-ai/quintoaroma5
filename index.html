@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quinto Aroma - Del corazón de los Andes al mundo</title>
+  <meta name="description" content="Café andino de alta gama, artesanal, sostenible y lleno de aroma. Cultivado en las alturas de los Andes peruanos." />
+
+  <!-- Google Fonts: Playfair Display (elegante) y Lato (limpio) -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Lato:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ==================== VARIABLES DE DISEÑO ==================== */
+    :root {
+      --primary: #4a2a23;     /* Marrón profundo (tierra andina) */
+      --secondary: #b89a6a;   /* Dorado suave (calidez) */
+      --tertiary: #f8f4ec;    /* Beige claro (fondo cálido) */
+      --text: #2e221a;        /* Marrón oscuro para texto */
+      --text-light: #5a4a42;  /* Marrón medio para cuerpo */
+      --white: #fff;
+      --shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --radius: 12px;
+    }
+
+    /* ==================== REINICIO Y TIPOGRAFÍA ==================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      color: var(--text);
+      background-color: var(--black);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: var(--radius);
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+
+    button, .btn {
+      cursor: pointer;
+      border: none;
+      background: var(--secondary);
+      color: var(--white);
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      display: inline-block;
+    }
+
+    button:hover, .btn:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    /* ==================== HEADER TRANSPARENTE Y FIJO ==================== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1.2rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      transition: background 0.4s ease;
+      background: transparent;
+    }
+
+    header.scrolled {
+      background: rgba(74, 42, 35, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 0.8rem 5%;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.5px;
+    }
+
+    .tagline {
+      font-size: 0.85rem;
+      color: var(--secondary);
+      font-weight: 400;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    nav a {
+      color: var(--white);
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    nav a:hover {
+      color: var(--secondary);
+    }
+
+    .hamburger {
+      display: none;
+      color: var(--white);
+      font-size: 1.8rem;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    /* ==================== HERO CON PARALLAX ==================== */
+    .hero {
+      height: 100vh;
+      background-image: url('https://images.unsplash.com/photo-1565600292998-607f1a4c7c75?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); /* Cafetales andinos reales */
+      background-attachment: fixed; /* Efecto parallax */
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: var(--white);
+      position: relative;
+      padding: 2rem;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(74, 42, 35, 0.7));
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      padding: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      text-shadow: 0 1px 5px rgba(0, 0, 0, 0.6);
+    }
+
+    /* ==================== SECCIONES GENERALES ==================== */
+    section {
+      padding: 6rem 5%;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: var(--secondary);
+      margin: 1rem auto;
+      border-radius: 2px;
+    }
+
+    /* Animaciones de entrada */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ==================== NUESTRO CAFÉ ==================== */
+    #nuestro-cafe {
+      background-color: var(--white);
+    }
+
+    .cafe-intro {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      color: var(--text-light);
+      font-size: 1.1rem;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .process-card {
+      background: var(--tertiary);
+      padding: 2rem;
+      border-radius: var(--radius);
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+    }
+
+    .process-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .process-card i {
+      font-size: 2.5rem;
+      color: var(--secondary);
+      margin-bottom: 1rem;
+    }
+
+    .process-card h3 {
+      margin-bottom: 0.8rem;
+      font-size: 1.3rem;
+    }
+
+    /* ==================== GALERÍA MASONRY ==================== */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .gallery {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transform: scale(1);
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.03);
+    }
+
+    .gallery-item img {
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+
+    /* Lightbox mejorado */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 2rem;
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 12px;
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.2);
+      animation: zoomIn 0.4s ease;
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .lightbox .caption {
+      color: white;
+      margin-top: 1.5rem;
+      font-size: 1.2rem;
+      text-align: center;
+      max-width: 80%;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      color: white;
+      font-size: 2.5rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      transition: transform 0.3s ease;
+    }
+
+    .lightbox-close:hover {
+      transform: rotate(90deg);
+    }
+
+    /* ==================== CONÓCENOS ==================== */
+    #conocenos {
+      background-color: var(--white);
+    }
+
+    .about-flex {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+
+    @media (min-width: 900px) {
+      .about-flex {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+
+    .about-image {
+      flex: 1;
+    }
+
+    .about-text {
+      flex: 1;
+      padding: 2rem;
+    }
+
+    .about-text h3 {
+      font-size: 2rem;
+      margin-bottom: 1.2rem;
+    }
+
+    /* ==================== REDES Y SUSCRIPCIÓN ==================== */
+    #redes {
+      background-color: var(--tertiary);
+      text-align: center;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      margin: 2rem 0;
+      font-size: 1.8rem;
+    }
+
+    .social-icons i {
+      color: var(--primary);
+      transition: var(--transition);
+    }
+
+    .social-icons i:hover {
+      color: var(--secondary);
+      transform: scale(1.3) rotate(10deg);
+    }
+
+    .cta-links {
+      margin: 1.5rem 0;
+    }
+
+    .cta-links a {
+      color: var(--primary);
+      margin: 0 1.2rem;
+      font-weight: 600;
+    }
+
+    .cta-links a:hover {
+      color: var(--secondary);
+      text-decoration: underline;
+    }
+
+    /* ==================== FOOTER ==================== */
+    footer {
+      background: var(--primary);
+      color: var(--white);
+      padding: 4rem 5%;
+      text-align: center;
+    }
+
+    footer .container {
+      max-width: 900px;
+    }
+
+    .footer-logo {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-tagline {
+      color: var(--secondary);
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-info p {
+      margin: 0.6rem 0;
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .subscription-form {
+      margin: 2rem auto;
+      max-width: 500px;
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .subscription-form input {
+      flex: 1;
+      padding: 14px 20px;
+      border: none;
+      border-radius: 50px;
+      font-size: 1rem;
+    }
+
+    .subscription-form button {
+      padding: 14px 24px;
+    }
+
+    .copyright {
+      margin-top: 2.5rem;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* ==================== MENÚ MÓVIL ==================== */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -80%;
+      width: 80%;
+      height: 100vh;
+      background: var(--primary);
+      z-index: 999;
+      padding: 6rem 2rem;
+      transition: right 0.4s ease;
+      overflow-y: auto;
+    }
+
+    .mobile-menu.active {
+      right: 0;
+    }
+
+    .mobile-menu ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .mobile-menu a {
+      color: var(--white);
+      font-size: 1.3rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .hamburger {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+      }
+
+      .section-title {
+        font-size: 2.2rem;
+      }
+
+      .subscription-form {
+        flex-direction: column;
+      }
+
+      .subscription-form input,
+      .subscription-form button {
+        width: 100%;
+      }
+    }
+
+    /* Accesibilidad */
+    button:focus, a:focus {
+      outline: 3px solid var(--secondary);
+      outline-offset: 3px;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+
+  <!-- Font Awesome para iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+</head>
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header id="main-header">
+    <div class="logo">
+      Quinto Aroma
+      <div class="tagline">Del corazón de los Andes al mundo</div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#nuestro-cafe">Nuestro Café</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#conocenos">Conócenos</a></li>
+        <li><a href="#colaboradores">Colaboradores</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+    <div class="hamburger" id="hamburger">☰</div>
+  </header>
+
+  <!-- Menú móvil -->
+  <div class="mobile-menu" id="mobile-menu">
+    <nav>
+      <ul>
+        <li><a href="#inicio" onclick="closeMobile()">Inicio</a></li>
+        <li><a href="#nuestro-cafe" onclick="closeMobile()">Nuestro Café</a></li>
+        <li><a href="#galeria" onclick="closeMobile()">Galería</a></li>
+        <li><a href="#conocenos" onclick="closeMobile()">Conócenos</a></li>
+        <li><a href="#colaboradores" onclick="closeMobile()">Colaboradores</a></li>
+        <li><a href="#contacto" onclick="closeMobile()">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero" id="inicio">
+    <div class="hero-content">
+      <h1>Quinto Aroma</h1>
+      <p>El alma del café nacida en las cumbres andinas. Cada grano, un ritual de paciencia, pasión y sabor inigualable.</p>
+      <button class="btn" onclick="document.getElementById('nuestro-cafe').scrollIntoView({behavior: 'smooth'})">Descubre Nuestro Café</button>
+    </div>
+  </section>
+
+  <!-- ==================== NUESTRO CAFÉ ==================== -->
+  <section id="nuestro-cafe">
+    <div class="container">
+      <h2 class="section-title fade-in">Nuestro Café</h2>
+      <p class="cafe-intro fade-in">En Quinto Aroma, el café no se cosecha: se cultiva con alma. Desde la siembra hasta el tostado artesanal, cada paso está guiado por la tradición andina y el respeto por la tierra.</p>
+
+      <div class="process-grid">
+        <div class="process-card fade-in">
+          <i class="fas fa-seedling"></i>
+          <h3>Siembra Sostenible</h3>
+          <p>Bajo la sombra de árboles nativos, cuidamos el ecosistema desde el primer día.</p>
+        </div>
+        <div class="process-card fade-in">
+          <i class="fas fa-hands"></i>
+          <h3>Cosecha Manual</h3>
+          <p>Solo granos maduros, seleccionados a mano por agricultores expertos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== GALERÍA ==================== -->
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galería Animada</title>
+  <!-- Tailwind vía CDN -->
+  <script src="https://drive.google.com/file/d/1qbd5ZWAa8IHpEBVqNrfnhBTggRkwF9t4/view?usp=drivesdk"></script>
+  <!-- Framer Motion (usaremos versión UMD) -->
+  <script src="https://unpkg.com/framer-motion/dist/framer-motion.umd.js"></script>
+  <!-- Iconos -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1rem;
+      cursor: pointer;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 5s ease;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.15) rotate(0.2deg);
+    }
+    .caption {
+      position: absolute;
+      left: 1rem;
+      bottom: 1rem;
+      background: rgba(0,0,0,0.4);
+      color: white;
+      font-size: 0.8rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+    }
+    .gallery-item:hover .caption {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Modal */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 50;
+    }
+    .lightbox.active { display: flex; }
+    .lightbox img {
+      max-height: 80vh;
+      max-width: 90vw;
+      border-radius: 1rem;
+    }
+    .lightbox button {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(0,0,0,0.6);
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: 9999px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+  <div class="max-w-6xl mx-auto p-6">
+    <h2 class="text-3xl font-bold mb-6">Galería Animada</h2>
+    <div class="gallery-grid">
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="IMG_20250903_173302.jpg" alt="Mi Foto" />
+        <div class="caption">Fotografía creativa</div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="CAFE1.jpg" alt="Mi Foto" />
+        <div class="caption">Fotografía creativa</div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="CAFE2.jpg" alt="3" />
+        <div class="caption">Fotografía creativa</div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="CAFE3.jpg" alt="4" />
+        <div class="caption">Fotografía creativa</div>
+      </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="CAFE4.jpg" alt="Mi Foto" />
+        <div class="caption">Fotografía creativa</div>
+        </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="CAFE5.jpg" alt="Mi Foto" />
+        <div class="caption">Fotografía creativa</div>
+        </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="CAFE6.jpg" alt="Mi Foto" />
+        <div class="caption">Fotografía creativa</div>
+        </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="CAFE7.jpg" alt="Mi Foto" />
+        <div class="caption">Fotografía creativa</div>
+        </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="CAFE8.jpg" alt="Mi Foto" />
+        <div class="caption">Fotografía creativa</div>
+        </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="CAFE9.jpg" alt="Mi Foto" />
+        <div class="caption">Fotografía creativa</div>
+        </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="CAFE10.jpg" alt="Mi Foto" />
+        <div class="caption">Fotografía creativa</div>
+        </div>
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="CAFE11.jpg" alt="Mi Foto" />
+        <div class="caption">Fotografía creativa</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <button onclick="closeLightbox(event)">&times;</button>
+    <img id="lightbox-img" src="" alt="Seleccionada" />
+  </div>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+
+    function openLightbox(el) {
+      const img = el.querySelector('img');
+      lightboxImg.src = img.src;
+      lightbox.classList.add('active');
+    }
+
+    function closeLightbox(e) {
+      if (e) e.stopPropagation();
+      lightbox.classList.remove('active');
+    }
+  </script>
+</body>
+</html>
+  <!-- ==================== CONÓCENOS ==================== -->
+  <section id="conocenos">
+    <div class="container">
+      <h2 class="section-title fade-in">Conócenos</h2>
+      <div class="about-flex">
+        <div class="about-image fade-in">
+          <img src="https://images.unsplash.com/photo-1605870445917-7a2e850769c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Familia de caficultores andinos sonriendo" />
+        </div>
+        <div class="about-text fade-in">
+          <h3>Hecho con Corazón Andino</h3>
+          <p>Quinto Aroma nace de un sueño compartido: llevar el sabor auténtico de los Andes al mundo, sin sacrificar valores. Trabajamos directamente con comunidades de Cusco, Puno y Cajamarca, asegurando comercio justo, capacitación y desarrollo sostenible.</p>
+          <p>Cada compra contribuye a educación, salud y proyectos agroecológicos. Porque creemos que un buen café también debe hacer el bien.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==================== NUESTROS COLABORADORES ==================== -->
+  <section id="colaboradores">
+    <img src="aliados.png"/>
+    <div class="container">
+      <h2 class="section-title fade-in">Nuestros Colaboradores</h2>
+      <p class="cafe-intro fade-in">Gracias a quienes compran y confian en nuestro cafe desde hace años.</p>
+
+      <div class="process-grid">
+        <div class="process-card fade-in">
+          <img src="https://via.placeholder.com/150x80?text=Logo+1" alt="Colaborador 1">
+          <h3>Kahawa Kawa i Książka</h3>
+          <p>Principal comprador de cafe sandino desde Polonia que ya llevan comprando desde el 2017.</p>
+          <a href="https://www.facebook.com/share/1FoygzBdq9/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== REDES SOCIALES ==================== -->
+  <section id="redes">
+    <div class="container">
+      <h2 class="section-title fade-in">Síguenos</h2>
+      <p>Descubre historias detrás del grano, novedades y eventos</p>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/share/14H5XKwYBmM/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/quinto_aroma5?igsh=emNoMWF4MXl3MDZu" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@quintoaroma3?_t=ZS-8zSShbL1GMM&_r=1" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="https://youtube.com/@quintoaroma-v7s?si=9nuDRl2s2sp8rnld" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+      <div class="cta-links fade-in"> 
+        <a href="#contacto">Contáctanos</a> | 
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer id="contacto">
+    <div class="container">
+      <div class="footer-logo">Quinto Aroma</div>
+      <div class="footer-tagline">Del corazón de los Andes al mundo</div>
+      <div class="contact-info">
+        <p>Email: quintoaroma5.com</p>
+        <p>Teléfono: +51 927 595 715</p>
+        <p>Ubicación: Sandia, Puno Peru</p>
+      </div>
+      <form class="subscription-form" onsubmit="event.preventDefault(); alert('¡Gracias por suscribirte a Quinto Aroma!');">
+        <input type="email" placeholder="Tu correo electrónico" aria-label="Correo para suscripción" required />
+        <button type="submit">Suscribirse</button>
+      </form>
+      <div class="copyright">
+        &copy; 2025 Quinto Aroma. Todos los derechos reservados.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== JAVASCRIPT ==================== -->
+  <script>
+    // Header con scroll
+    const header = document.getElementById('main-header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Menú móvil
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+      hamburger.textContent = mobileMenu.classList.contains('active') ? '✕' : '☰';
+    });
+
+    function closeMobile() {
+      mobileMenu.classList.remove('active');
+      hamburger.textContent = '☰';
+    }
+
+    // Lightbox
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightbox-img');
+    const lbCaption = document.getElementById('lightbox-caption');
+
+    function openLightbox(src, caption) {
+      lbImg.src = src;
+      lbImg.alt = caption;
+      lbCaption.textContent = caption;
+      lb.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lb.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    lb.addEventListener('click', (e) => {
+      if (e.target === lb) closeLightbox();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    // Animaciones al hacer scroll
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    fadeElements.forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+
+  <!-- ✅ INSTRUCCIONES -->
+  <!--
+  1. Reemplaza las imágenes de Unsplash por tus propias fotos reales si lo deseas.
+  2. Actualiza los enlaces de redes sociales y contacto.
+  3. Para producción, considera usar un servicio de email (Mailchimp, etc.) en el formulario.
+  4. Puedes añadir un favicon en el <head> si lo tienes.
+  5. Este archivo es 100% estático, listo para subir a Netlify, Vercel, GitHub Pages, etc.
+  -->
+
+</body>
+</html>
