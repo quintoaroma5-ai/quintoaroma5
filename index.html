@@ -997,22 +997,49 @@ Elegir nuestro café de Sandia es más que disfrutar de un sabor excepcional: es
         </div>
       </div>
 
-      <!-- Barra personalizada -->
-      <div style="margin-top: 50px;">
-        <h3 style="margin-bottom: 15px;">📏 O elige tu propio monto (Soles Peruanos)</h3>
-        <div style="position: relative; width: 80%; margin: auto;">
-          <input type="range" min="5" max="200" value="50" step="5" 
-                 style="width: 100%; -webkit-appearance: none; background: #ddd; height: 6px; border-radius: 5px; outline: none;">
-          <div style="position: absolute; top: -25px; font-size: 1.5rem; left:50%;">☕</div>
-        </div>
-        <p style="margin-top: 20px; font-size: 1.2rem; font-weight: bold;">
-          Donación seleccionada: <span>S/ 50 PEN</span>
-        </p>
-        <button class="btn" style="margin-top: 15px;" onclick="openSoonModal()">Donar este monto</button>
-      </div>
-    </div>
+<!-- Barra personalizada -->
+<div style="margin-top: 50px;">
+  <h3 style="margin-bottom: 15px;">📏 O elige tu propio monto (Soles Peruanos)</h3>
+  <div style="position: relative; width: 80%; margin: auto;">
+    <input type="range" id="donationRange" min="5" max="200" value="50" step="5" 
+           style="width: 100%; -webkit-appearance: none; background: #ddd; height: 6px; border-radius: 5px; outline: none;">
+    <div id="coffeeIcon" style="position: absolute; top: -25px; font-size: 1.8rem; left:50%;">☕</div>
   </div>
-</section>
+  <p style="margin-top: 20px; font-size: 1.2rem; font-weight: bold;">
+    Donación seleccionada: <span id="donationValue">S/ 50 PEN</span>
+  </p>
+  <button class="btn" style="margin-top: 15px;" onclick="openSoonModal()">Donar este monto</button>
+</div>
+
+<script>
+  const donationRange = document.getElementById("donationRange");
+  const donationValue = document.getElementById("donationValue");
+  const coffeeIcon = document.getElementById("coffeeIcon");
+
+  donationRange.addEventListener("input", function() {
+    // Actualiza el monto en soles
+    const value = donationRange.value;
+    donationValue.textContent = "S/ " + value + " PEN";
+
+    // Mover la tacita
+    const percent = (value - donationRange.min) / (donationRange.max - donationRange.min);
+    coffeeIcon.style.left = (percent * 100) + "%";
+    coffeeIcon.style.transform = "translateX(-50%)";
+
+    // Cambiar ícono y color según monto
+    if (value < 50) {
+      coffeeIcon.textContent = "🍵"; // taza más clara
+      coffeeIcon.style.color = "#a3d977"; // verde claro
+    } else if (value < 120) {
+      coffeeIcon.textContent = "☕"; // café medio
+      coffeeIcon.style.color = "#6f4e37"; // marrón café
+    } else {
+      coffeeIcon.textContent = "🥤"; // vaso lleno / grande
+      coffeeIcon.style.color = "#2c1a0c"; // marrón oscuro
+    }
+  });
+</script>
+
 
 <!-- Modal "Próximamente" -->
 <div id="soonModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); 
