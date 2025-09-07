@@ -976,24 +976,24 @@ Elegir nuestro café de Sandia es más que disfrutar de un sabor excepcional: es
       proteger el medio ambiente y hacer crecer este proyecto. 🌱☕
     </p>
 
-    <!-- Contenido bloqueado -->
-    <div style="opacity:0.5; pointer-events:none; margin-top: 40px;">
+    <!-- Contenido habilitado -->
+    <div style="margin-top: 40px;">
       <!-- Tarjetas de donación -->
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
         <div style="background: #fff; padding: 25px; border-radius: 15px; box-shadow: 0 6px 20px rgba(0,0,0,0.1);">
           <h3 style="margin-bottom: 10px;">☕ Apoya con un Café</h3>
           <p style="color:#555; margin-bottom: 15px;">S/ 10 PEN</p>
-          <button class="btn">Donar</button>
+          <button class="btn" onclick="openSoonModal()">Donar</button>
         </div>
         <div style="background: #fff; padding: 25px; border-radius: 15px; box-shadow: 0 6px 20px rgba(0,0,0,0.1);">
           <h3 style="margin-bottom: 10px;">🌱 Impulsa a una Familia</h3>
           <p style="color:#555; margin-bottom: 15px;">S/ 20 PEN</p>
-          <button class="btn">Donar</button>
+          <button class="btn" onclick="openSoonModal()">Donar</button>
         </div>
         <div style="background: #fff; padding: 25px; border-radius: 15px; box-shadow: 0 6px 20px rgba(0,0,0,0.1);">
           <h3 style="margin-bottom: 10px;">🌍 Protege la Naturaleza</h3>
           <p style="color:#555; margin-bottom: 15px;">S/ 50 PEN</p>
-          <button class="btn">Donar</button>
+          <button class="btn" onclick="openSoonModal()">Donar</button>
         </div>
       </div>
 
@@ -1008,17 +1008,37 @@ Elegir nuestro café de Sandia es más que disfrutar de un sabor excepcional: es
         <p style="margin-top: 20px; font-size: 1.2rem; font-weight: bold;">
           Donación seleccionada: <span>S/ 50 PEN</span>
         </p>
-        <button class="btn" style="margin-top: 15px;">Donar este monto</button>
+        <button class="btn" style="margin-top: 15px;" onclick="openSoonModal()">Donar este monto</button>
       </div>
     </div>
-
-    <!-- Nota de confianza -->
-    <p style="margin-top: 40px; color:#444; font-size:1rem;">
-      🔒 <em>Cuando habilitemos esta sección, todos los pagos serán 100% seguros y estarán protegidos.  
-      Tu confianza es nuestra prioridad.</em>
-    </p>
   </div>
 </section>
+
+<!-- Modal "Próximamente" -->
+<div id="soonModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); 
+                            z-index:2000; justify-content:center; align-items:center;">
+  <div style="background:#fff; padding:30px; border-radius:15px; max-width:500px; width:90%; 
+              text-align:center; box-shadow:0 8px 30px rgba(0,0,0,0.3); animation:zoomIn 0.3s ease;">
+    <h3 style="margin-bottom:15px;">⚠️ Donaciones Próximamente</h3>
+    <p style="color:#444; line-height:1.6;">
+      Gracias por tu interés en apoyar a <strong>Quinto Sentido</strong>.  
+      Esta sección estará habilitada muy pronto para que puedas donar con tarjeta de crédito, Yape, Plin y divisas.  
+      🙏☕ Tu confianza es muy importante para nosotros.
+    </p>
+    <button onclick="closeSoonModal()" style="margin-top:20px; padding:10px 20px; border:none; 
+            background:#b89a6a; color:#fff; border-radius:8px; cursor:pointer;">Cerrar</button>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script>
+  function openSoonModal() {
+    document.getElementById('soonModal').style.display = "flex";
+  }
+  function closeSoonModal() {
+    document.getElementById('soonModal').style.display = "none";
+  }
+</script>
 
 <!-- Animación -->
 <style>
@@ -1026,6 +1046,10 @@ Elegir nuestro café de Sandia es más que disfrutar de un sabor excepcional: es
     0% { transform: scale(1); box-shadow: 0 0 0 rgba(244, 211, 94, 0.7); }
     50% { transform: scale(1.05); box-shadow: 0 0 15px rgba(246, 201, 14, 0.8); }
     100% { transform: scale(1); box-shadow: 0 0 0 rgba(244, 211, 94, 0.7); }
+  }
+  @keyframes zoomIn {
+    from { transform:scale(0.8); opacity:0; }
+    to { transform:scale(1); opacity:1; }
   }
 </style>
 
