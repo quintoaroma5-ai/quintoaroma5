@@ -953,87 +953,81 @@ Elegir nuestro café de Sandia es más que disfrutar de un sabor excepcional: es
     </div>
   </section>
   <!-- ==================== DONACIONES ==================== -->
-<section id="donaciones" style="background: #fff8f0; padding: 60px 20px; text-align: center;">
+<section id="donaciones" style="background: #fff8f0; padding: 60px 20px; text-align: center; position: relative;">
   <div class="container" style="max-width: 900px; margin: auto;">
-    <h2 class="section-title fade-in">💖 Dona y Apoya Quinto Sentido</h2>
-    <p class="cafe-intro fade-in">
-      Tu aporte nos ayuda a fortalecer a las familias cafetaleras de Sandia – Puno, 
-      proteger el medio ambiente y hacer crecer el proyecto <strong>Quinto Sentido</strong>.  
-      Cada donación, por pequeña que sea, hace la diferencia. 🌱☕
+    <h2 class="section-title fade-in" style="position: relative; display: inline-block;">
+      💖 Dona y Apoya Quinto Sentido
+    </h2>
+
+    <!-- Banner creativo Próximamente -->
+    <div style="background: linear-gradient(90deg, #f4d35e, #f6c90e); color:#4a2a23; 
+                padding:10px 20px; border-radius:50px; display:inline-flex; 
+                align-items:center; gap:10px; font-weight:bold; font-size:1rem; 
+                margin:20px auto; box-shadow:0 4px 12px rgba(0,0,0,0.15); 
+                animation: pulse 1.5s infinite;">
+      <span style="font-size:1.3rem;">⏳</span> 
+      <span>Sección de Donaciones disponible próximamente</span>
+    </div>
+
+    <p class="cafe-intro fade-in" style="margin-top:20px;">
+      Muy pronto podrás apoyar a <strong>Quinto Sentido</strong> con tus aportes en 
+      <strong>Soles Peruanos (PEN)</strong> o en <strong>divisas internacionales</strong>.  
+      Tu aporte nos ayudará a fortalecer a las familias cafetaleras de Sandia – Puno, 
+      proteger el medio ambiente y hacer crecer este proyecto. 🌱☕
     </p>
 
-    <!-- Tarjetas de donación -->
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 40px;">
-      
-      <!-- Opción 1 -->
-      <div style="background: #fff; padding: 25px; border-radius: 15px; box-shadow: 0 6px 20px rgba(0,0,0,0.1);">
-        <h3 style="margin-bottom: 10px;">☕ Apoya con un Café</h3>
-        <p style="color:#555; margin-bottom: 15px;">S/ 10</p>
-        <button class="btn" onclick="openDonationModal('S/ 10 - Apoya con un Café')">Donar</button>
+    <!-- Contenido bloqueado -->
+    <div style="opacity:0.5; pointer-events:none; margin-top: 40px;">
+      <!-- Tarjetas de donación -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+        <div style="background: #fff; padding: 25px; border-radius: 15px; box-shadow: 0 6px 20px rgba(0,0,0,0.1);">
+          <h3 style="margin-bottom: 10px;">☕ Apoya con un Café</h3>
+          <p style="color:#555; margin-bottom: 15px;">S/ 10 PEN</p>
+          <button class="btn">Donar</button>
+        </div>
+        <div style="background: #fff; padding: 25px; border-radius: 15px; box-shadow: 0 6px 20px rgba(0,0,0,0.1);">
+          <h3 style="margin-bottom: 10px;">🌱 Impulsa a una Familia</h3>
+          <p style="color:#555; margin-bottom: 15px;">S/ 20 PEN</p>
+          <button class="btn">Donar</button>
+        </div>
+        <div style="background: #fff; padding: 25px; border-radius: 15px; box-shadow: 0 6px 20px rgba(0,0,0,0.1);">
+          <h3 style="margin-bottom: 10px;">🌍 Protege la Naturaleza</h3>
+          <p style="color:#555; margin-bottom: 15px;">S/ 50 PEN</p>
+          <button class="btn">Donar</button>
+        </div>
       </div>
 
-      <!-- Opción 2 -->
-      <div style="background: #fff; padding: 25px; border-radius: 15px; box-shadow: 0 6px 20px rgba(0,0,0,0.1);">
-        <h3 style="margin-bottom: 10px;">🌱 Impulsa a una Familia</h3>
-        <p style="color:#555; margin-bottom: 15px;">S/ 20</p>
-        <button class="btn" onclick="openDonationModal('S/ 20 - Impulsa a una Familia')">Donar</button>
+      <!-- Barra personalizada -->
+      <div style="margin-top: 50px;">
+        <h3 style="margin-bottom: 15px;">📏 O elige tu propio monto (Soles Peruanos)</h3>
+        <div style="position: relative; width: 80%; margin: auto;">
+          <input type="range" min="5" max="200" value="50" step="5" 
+                 style="width: 100%; -webkit-appearance: none; background: #ddd; height: 6px; border-radius: 5px; outline: none;">
+          <div style="position: absolute; top: -25px; font-size: 1.5rem; left:50%;">☕</div>
+        </div>
+        <p style="margin-top: 20px; font-size: 1.2rem; font-weight: bold;">
+          Donación seleccionada: <span>S/ 50 PEN</span>
+        </p>
+        <button class="btn" style="margin-top: 15px;">Donar este monto</button>
       </div>
-
-      <!-- Opción 3 -->
-      <div style="background: #fff; padding: 25px; border-radius: 15px; box-shadow: 0 6px 20px rgba(0,0,0,0.1);">
-        <h3 style="margin-bottom: 10px;">🌍 Protege la Naturaleza</h3>
-        <p style="color:#555; margin-bottom: 15px;">S/ 50</p>
-        <button class="btn" onclick="openDonationModal('S/ 50 - Protege la Naturaleza')">Donar</button>
-      </div>
-
     </div>
+
+    <!-- Nota de confianza -->
+    <p style="margin-top: 40px; color:#444; font-size:1rem;">
+      🔒 <em>Cuando habilitemos esta sección, todos los pagos serán 100% seguros y estarán protegidos.  
+      Tu confianza es nuestra prioridad.</em>
+    </p>
   </div>
 </section>
 
-<!-- ==================== MODAL DONACIÓN ==================== -->
-<div id="donationModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.7); z-index:2000; justify-content:center; align-items:center;">
-  <div style="background:#fff; padding:30px; border-radius:15px; max-width:500px; width:90%; text-align:center; box-shadow:0 8px 30px rgba(0,0,0,0.3); animation:zoomIn 0.3s ease;">
-    <h3 id="donationTitle">Tu Donación</h3>
-    <p style="margin:15px 0; color:#444; line-height:1.6;">
-      Gracias por apoyar el proyecto <strong>Quinto Sentido</strong>.  
-      Tu donación es segura y será destinada a mejorar la vida de familias cafetaleras y proteger la naturaleza.  
-      💚 Confía en que tu aporte hace la diferencia.
-    </p>
-
-    <!-- Métodos de pago -->
-    <div style="margin-top:20px; display:flex; flex-direction:column; gap:15px;">
-      <a href="https://www.paypal.com/donate?hosted_button_id=XXXXXXXXXXXX" target="_blank" 
-         style="background:#0070ba; color:white; padding:12px; border-radius:8px; text-decoration:none; font-weight:bold;">
-         Donar con PayPal
-      </a>
-      <a href="https://api.whatsapp.com/send?phone=+51927595715&text=Quiero%20donar%20a%20Quinto%20Sentido" target="_blank" 
-         style="background:#25d366; color:white; padding:12px; border-radius:8px; text-decoration:none; font-weight:bold;">
-         Donar por Yape / Plin 📲
-      </a>
-    </div>
-
-    <!-- Cerrar -->
-    <button onclick="closeDonationModal()" style="margin-top:25px; padding:10px 20px; border:none; background:#b89a6a; color:#fff; border-radius:8px; cursor:pointer;">Cerrar</button>
-  </div>
-</div>
-
-<script>
-  function openDonationModal(option) {
-    document.getElementById('donationTitle').textContent = "Donación: " + option;
-    document.getElementById('donationModal').style.display = "flex";
-  }
-  function closeDonationModal() {
-    document.getElementById('donationModal').style.display = "none";
-  }
-</script>
-
+<!-- Animación -->
 <style>
-  @keyframes zoomIn {
-    from { transform:scale(0.8); opacity:0; }
-    to { transform:scale(1); opacity:1; }
+  @keyframes pulse {
+    0% { transform: scale(1); box-shadow: 0 0 0 rgba(244, 211, 94, 0.7); }
+    50% { transform: scale(1.05); box-shadow: 0 0 15px rgba(246, 201, 14, 0.8); }
+    100% { transform: scale(1); box-shadow: 0 0 0 rgba(244, 211, 94, 0.7); }
   }
 </style>
-
 
   <!-- ==================== FOOTER ==================== -->
   <footer id="contacto">
